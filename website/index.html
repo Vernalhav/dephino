@@ -14,7 +14,11 @@
     <main>
         <h1>This is a header: the word is -----</h1>
         <p>This is a paragraph. the word is -----</p>
-        <button onclick="newWord()">NEW WORD</button>
+
+        <form action="javascript:guess()">
+            <input type="text" id="guess" />
+            <button type="submit">GUESS</button>
+        </form>
     </main>
     <script src="js/arrayutils.js"></script>
     <script src="js/words.js"></script>
