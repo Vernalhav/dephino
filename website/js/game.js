@@ -9,27 +9,31 @@ let wordDefinition = null
 const gameObservers = []
 
 /** @type {GameState} */
-let state = "loading"
+let state = "start"
 
 /** @param {GameState} s */
 function setState(s) {
+    if (s === state) return
     for (const observer of gameObservers) {
         observer(s)
     }
     state = s
 }
 
-/** @param {string} word */
+/**
+ * @param {string} word 
+ * @returns {boolean}
+ */
 function guess(word) {
-    word.toLowerCase() === wordDefinition.word.toLowerCase()
-        ? processCorrectGuess() : processIncorrectGuess()
+    const won = word.toLowerCase() === wordDefinition.word.toLowerCase()
+    if (won) {
+        processCorrectGuess()
+    }
+    return won
 }
 
 function processCorrectGuess() {
     setState("win")
-}
-
-function processIncorrectGuess() {
 }
 
 async function newWord() {
@@ -42,6 +46,7 @@ async function newWord() {
 }
 
 async function main() {
+    setState("loading")
     words = await getWords()
     newWord()
 }
