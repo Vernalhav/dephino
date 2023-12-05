@@ -24,14 +24,14 @@ function setState(s, info = null) {
 }
 
 /**
- * @param {string} word 
+ * @param {string} word
  * @returns {boolean}
  */
 function guess(word) {
     if (state !== "guessing") {
         setState("error", {
             state,
-            error: { from: state, to: "guessing" }
+            error: { from: state, to: "guessing" },
         })
         return
     }
@@ -46,11 +46,11 @@ function skip() {
     if (state !== "guessing") {
         setState("error", {
             state,
-            error: { from: state, to: "loading" }
+            error: { from: state, to: "loading" },
         })
         return
     }
-    newWord()
+    setState("skipped")
 }
 
 async function newWord() {
@@ -63,7 +63,7 @@ async function newWord() {
     } catch {
         setState("error", {
             state,
-            error: { from: state, to: "guessing" }
+            error: { from: state, to: "guessing" },
         })
         return
     }
