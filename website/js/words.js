@@ -1,7 +1,7 @@
 const WORDS_URL = "assets/words.txt"
 
 /**
- * @return {Promise<Iterable<string>>}
+ * @return {Promise<string[]>}
  */
 async function getWords() {
     const response = await fetch(WORDS_URL)
