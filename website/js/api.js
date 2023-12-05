@@ -6,7 +6,7 @@ const MAX_RETRIES = 5
  * @return {Promise<DictionaryEntry?>}
  */
 async function getDefinition(word) {
-    let response = new Response()
+    let response = new Response(null, { status: 400 })
     for (let i = 0; i < MAX_RETRIES && response.status !== 200; i++) {
         response = await fetch(`${API_URL}/${word}`)
         if (response.status === 404) {
