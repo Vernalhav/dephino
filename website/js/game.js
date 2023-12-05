@@ -5,8 +5,6 @@ let words = []
 /** @type {DictionaryEntry?} */
 let wordDefinition = null
 
-const guessInput = /** @type {HTMLInputElement} */ (document.getElementById("guess"))
-
 /** @type {GameObserver[]} */
 const gameObservers = []
 
@@ -21,13 +19,10 @@ function setState(s) {
     state = s
 }
 
-function guess() {
-    const guess = guessInput.value
-    if (guess.toLowerCase() === wordDefinition.word.toLowerCase()) {
-        processCorrectGuess()
-        return
-    }
-    processIncorrectGuess()
+/** @param {string} word */
+function guess(word) {
+    word.toLowerCase() === wordDefinition.word.toLowerCase()
+        ? processCorrectGuess() : processIncorrectGuess()
 }
 
 function processCorrectGuess() {
@@ -35,7 +30,6 @@ function processCorrectGuess() {
 }
 
 function processIncorrectGuess() {
-
 }
 
 async function newWord() {
