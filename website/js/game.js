@@ -1,5 +1,3 @@
-window.onload = main
-
 /** @type {string[]} */
 let words = []
 /** @type {DictionaryEntry?} */
@@ -14,7 +12,7 @@ let state = "start"
 /**
  * @param {GameState} s
  * @param {GameInfo?} info
- * */
+ */
 function setState(s, info = null) {
     if (s === state) return
     for (const observer of gameObservers) {
@@ -75,3 +73,5 @@ async function main() {
     words = await getWords()
     newWord()
 }
+
+window.addEventListener("load", main)
