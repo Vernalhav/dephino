@@ -11,11 +11,14 @@ const gameObservers = []
 /** @type {GameState} */
 let state = "start"
 
-/** @param {GameState} s */
-function setState(s) {
+/**
+ * @param {GameState} s
+ * @param {GameInfo?} info
+ * */
+function setState(s, info = null) {
     if (s === state) return
     for (const observer of gameObservers) {
-        observer(s)
+        observer(s, info || { state })
     }
     state = s
 }
@@ -25,23 +28,45 @@ function setState(s) {
  * @returns {boolean}
  */
 function guess(word) {
+    if (state !== "guessing") {
+        setState("error", {
+            state,
+            error: { from: state, to: "guessing" }
+        })
+        return
+    }
     const won = word.toLowerCase() === wordDefinition.word.toLowerCase()
     if (won) {
-        processCorrectGuess()
+        setState("win")
     }
     return won
 }
 
-function processCorrectGuess() {
-    setState("win")
+function skip() {
+    if (state !== "guessing") {
+        setState("error", {
+            state,
+            error: { from: state, to: "loading" }
+        })
+        return
+    }
+    newWord()
 }
 
 async function newWord() {
     setState("loading")
     const word = choice(words)
-    do {
-        wordDefinition = await getDefinition(word)
-    } while (wordDefinition === null)
+    try {
+        do {
+            wordDefinition = await getDefinition(word)
+        } while (wordDefinition === null)
+    } catch {
+        setState("error", {
+            state,
+            error: { from: state, to: "guessing" }
+        })
+        return
+    }
     setState("guessing")
 }
 
