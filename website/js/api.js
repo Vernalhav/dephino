@@ -1,14 +1,22 @@
 const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en"
+const MAX_RETRIES = 5
 
 /**
  * @param {string} word 
  * @return {Promise<DictionaryEntry?>} 
  */
 async function getDefinition(word) {
-    const response = await fetch(`${API_URL}/${word}`)
-    if (response.status !== 200) {
-        return null
+    let response = new Response()
+    for (let i = 0; i < MAX_RETRIES && response.status !== 200; i++) {
+        response = await fetch(`${API_URL}/${word}`)
+        if (response.status === 404) {
+            return null
+        }
     }
+    if (response.status !== 200) {
+        throw new Error("error reading from the API")
+    }
+
     const data = await response.json()
     return mapResponseToDomain(data[0])
 }
