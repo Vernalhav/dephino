@@ -2,8 +2,8 @@ const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en"
 const MAX_RETRIES = 5
 
 /**
- * @param {string} word 
- * @return {Promise<DictionaryEntry?>} 
+ * @param {string} word
+ * @return {Promise<DictionaryEntry?>}
  */
 async function getDefinition(word) {
     let response = new Response()
@@ -22,11 +22,11 @@ async function getDefinition(word) {
 }
 
 /**
- * @param {APIResponse} data 
+ * @param {APIResponse} data
  * @return {DictionaryEntry}
  */
 function mapResponseToDomain(data) {
-    const getExamples = example => example ? [example] : []
+    const getExamples = example => (example ? [example] : [])
     return {
         word: data.word,
         meanings: data.meanings.map(meaning => ({
@@ -36,7 +36,7 @@ function mapResponseToDomain(data) {
                 examples: getExamples(def.example)
             })),
             synonyms: getSynonyms([...meaning.definitions, meaning]),
-            antonyms: getAntonyms([...meaning.definitions, meaning]),
+            antonyms: getAntonyms([...meaning.definitions, meaning])
         })),
         source: {
             url: data.sourceUrls[0],
@@ -49,17 +49,23 @@ function mapResponseToDomain(data) {
 }
 
 /**
- * @param {{synonyms: string[]}[]} defs 
+ * @param {{synonyms: string[]}[]} defs
  * @returns {Iterable<string>}
  */
 function getSynonyms(defs) {
-    return defs.reduce((xs, def) => new Set([...xs, ...def.synonyms]), new Set())
+    return defs.reduce(
+        (xs, def) => new Set([...xs, ...def.synonyms]),
+        new Set()
+    )
 }
 
 /**
- * @param {{antonyms: string[]}[]} defs 
+ * @param {{antonyms: string[]}[]} defs
  * @returns {Iterable<string>}
  */
 function getAntonyms(defs) {
-    return defs.reduce((xs, def) => new Set([...xs, ...def.antonyms]), new Set())
+    return defs.reduce(
+        (xs, def) => new Set([...xs, ...def.antonyms]),
+        new Set()
+    )
 }
