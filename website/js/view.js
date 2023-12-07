@@ -37,7 +37,7 @@ function showGuess() {
 
 /** @param {GameInfo} info */
 function showError(info) {
-    window.alert(info)
+    window.alert(JSON.stringify(info.error, null, 4))
 }
 
 function hideAll() {
