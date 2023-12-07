@@ -39,6 +39,8 @@ function showWin() {
 }
 
 function showGuess() {
+    resetDefinition()
+    setDefinition(wordDefinition)
     hideAll()
     showGuessPanel()
 }
