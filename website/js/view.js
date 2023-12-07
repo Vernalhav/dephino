@@ -6,6 +6,14 @@ function startNewGame() {
     newWord()
 }
 
+function processHintInput() {
+    console.log(wordDefinition)
+}
+
+function processSkipInput() {
+    skip()
+}
+
 /**
  * @param {GameState} newState
  * @param {GameInfo} info
@@ -15,7 +23,7 @@ function gameObserver(newState, info) {
         showError(info)
         return
     }
-    if (newState === "win") {
+    if (newState === "win" || newState === "skipped") {
         showWin()
         return
     }

@@ -1,8 +1,8 @@
 const guessInput = /** @type {HTMLInputElement} */ (
     document.getElementById("guess-input")
 )
-const guessForm = /** @type {HTMLFormElement} */ (
-    document.getElementById("guess-form")
+const guessDiv = /** @type {HTMLDivElement} */ (
+    document.getElementById("guess-div")
 )
 const guessBtn = /** @type {HTMLButtonElement} */ (
     document.getElementById("guess-btn")
@@ -17,14 +17,14 @@ const resetBtn = /** @type {HTMLButtonElement} */ (
 function hideGuessPanel() {
     guessInput.disabled = true
     guessBtn.disabled = true
-    guessForm.style.display = "none"
+    guessDiv.style.display = "none"
 }
 
 function showGuessPanel() {
     guessInput.disabled = false
     guessInput.value = ""
     guessBtn.disabled = false
-    guessForm.style.display = "initial"
+    guessDiv.style.display = "initial"
 }
 
 function hideResetPanel() {
