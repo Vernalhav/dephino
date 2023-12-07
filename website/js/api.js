@@ -50,22 +50,20 @@ function mapResponseToDomain(data) {
 
 /**
  * @param {{synonyms: string[]}[]} defs
- * @returns {Iterable<string>}
+ * @returns {string[]}
  */
 function getSynonyms(defs) {
-    return defs.reduce(
+    return Array.from(defs.reduce(
         (xs, def) => new Set([...xs, ...def.synonyms]),
-        new Set()
-    )
+        new Set()))
 }
 
 /**
  * @param {{antonyms: string[]}[]} defs
- * @returns {Iterable<string>}
+ * @returns {string[]}
  */
 function getAntonyms(defs) {
-    return defs.reduce(
+    return Array.from(defs.reduce(
         (xs, def) => new Set([...xs, ...def.antonyms]),
-        new Set()
-    )
+        new Set()))
 }

@@ -7,13 +7,13 @@ type DictionaryEntry = {
 type Meaning = {
     partOfSpeech: string
     definitions: Definition[]
-    synonyms: Iterable<string>
-    antonyms: Iterable<string>
+    synonyms: string[]
+    antonyms: string[]
 }
 
 type Definition = {
     definition: string
-    examples: Iterable<string>
+    examples: string[]
 }
 
 type Source = {
