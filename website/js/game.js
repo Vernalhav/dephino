@@ -74,6 +74,8 @@ function getHiddenDefinition(def, hints) {
 
     hidden.word = hide(hidden.word, def.word, nHidden)
     for (const meaning of hidden.meanings) {
+        meaning.synonyms = hideMany(meaning.synonyms)
+        meaning.antonyms = hideMany(meaning.antonyms)
         for (const d of meaning.definitions) {
             d.definition = hide(d.definition, def.word, nHidden)
             d.examples = hideMany(d.examples)
