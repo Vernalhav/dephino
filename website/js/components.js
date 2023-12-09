@@ -50,8 +50,6 @@ function resetDefinition() {
 function setDefinition(def) {
     const title = `<h1 class="title">The word is ${escape(def.word)}</h1>`
     const items = def.meanings.map(m => {
-        console.log(m.synonyms)
-        console.log(m.antonyms)
         const synonyms = m.synonyms.map(s => `<li><p class="syn">${escape(s)}</p></li>`).join("")
         const antonyms = m.antonyms.map(a => `<li><p class="ant">${escape(a)}</p></li>`).join("")
         const defs = m.definitions.map(d => {
