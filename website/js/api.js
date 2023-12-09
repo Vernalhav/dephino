@@ -28,15 +28,15 @@ async function getDefinition(word) {
 function mapResponseToDomain(data) {
     const getExamples = example => (example ? [example] : [])
     return {
-        word: data.word,
+        word: capitalize(data.word),
         meanings: data.meanings.map(meaning => ({
-            partOfSpeech: meaning.partOfSpeech,
+            partOfSpeech: capitalize(meaning.partOfSpeech),
             definitions: meaning.definitions.map(def => ({
                 definition: def.definition,
                 examples: getExamples(def.example)
             })),
-            synonyms: getSynonyms([...meaning.definitions, meaning]),
-            antonyms: getAntonyms([...meaning.definitions, meaning])
+            synonyms: getSynonyms([...meaning.definitions, meaning]).map(capitalize),
+            antonyms: getAntonyms([...meaning.definitions, meaning]).map(capitalize),
         })),
         source: {
             url: data.sourceUrls[0],
