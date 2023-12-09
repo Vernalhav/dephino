@@ -7,7 +7,9 @@ function startNewGame() {
 }
 
 function processHintInput() {
-    console.log(wordDefinition)
+    getHint()
+    resetDefinition()
+    setDefinition(hiddenDefinition)
 }
 
 function processSkipInput() {
@@ -40,7 +42,7 @@ function showWin() {
 
 function showGuess() {
     resetDefinition()
-    setDefinition(wordDefinition)
+    setDefinition(hiddenDefinition)
     hideAll()
     showGuessPanel()
 }

@@ -2,6 +2,11 @@
 let words = []
 /** @type {DictionaryEntry?} */
 let wordDefinition = null
+/** @type {DictionaryEntry?} */
+let hiddenDefinition = null
+
+/** @type {number} */
+let hints = 0
 
 /** @type {GameObserver[]} */
 const gameObservers = []
@@ -50,6 +55,12 @@ function skip() {
     }
     setState("skipped")
 }
+
+function getHint() {
+    hints++
+    hiddenDefinition = getHiddenDefinition(wordDefinition, hints)
+}
+
 /**
  * @param {DictionaryEntry} def 
  * @param {number} hints 
@@ -86,6 +97,8 @@ async function newWord() {
         })
         return
     }
+    hints = 0
+    hiddenDefinition = getHiddenDefinition(wordDefinition, hints)
     setState("guessing")
 }
 
