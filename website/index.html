@@ -15,23 +15,16 @@
         <div id="definition"></div>
 
         <div id="guess-div">
-            <input type="text" onkeydown="if (event.key === 'Enter') processGuessInput()" autocomplete="off"
-                id="guess-input" />
-            <button onclick="processGuessInput()" id="guess-btn">GUESS</button>
-            <button onclick="processHintInput()" id="hint-btn">HINT</button>
-            <button onclick="processSkipInput()" id="skip-btn">SKIP</button>
+            <input type="text" autocomplete="off" id="guess-input" />
+            <button id="guess-btn">GUESS</button>
+            <button id="hint-btn">HINT</button>
+            <button id="skip-btn">SKIP</button>
         </div>
         <div id="reset-div">
-            <button id="reset-btn" onclick="startNewGame()">NEW GAME</button>
+            <button id="reset-btn">NEW GAME</button>
         </div>
     </main>
-    <script src="js/view.js"></script>
-    <script src="js/arrayutils.js"></script>
-    <script src="js/stringutils.js"></script>
-    <script src="js/words.js"></script>
-    <script src="js/components.js"></script>
-    <script src="js/api.js"></script>
-    <script src="js/game.js"></script>
+    <script type="module" src="js/view.js"></script>
 </body>
 
 </html>

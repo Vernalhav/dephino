@@ -8,3 +8,5 @@ async function getWords() {
     const content = await response.text()
     return content.split("\n")
 }
+
+export { getWords }

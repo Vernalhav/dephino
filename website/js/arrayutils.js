@@ -17,3 +17,6 @@ function choice(array) {
 function randInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min)
 }
+
+export { choice }
+

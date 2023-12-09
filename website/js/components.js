@@ -13,6 +13,12 @@ const resetDiv = /** @type {HTMLButtonElement} */ (
 const resetBtn = /** @type {HTMLButtonElement} */ (
     document.getElementById("reset-btn")
 )
+const hintBtn = /** @type {HTMLButtonElement} */ (
+    document.getElementById("hint-btn")
+)
+const skipBtn = /** @type {HTMLButtonElement} */ (
+    document.getElementById("skip-btn")
+)
 const definitionDiv = /** @type {HTMLButtonElement} */ (
     document.getElementById("definition")
 )
@@ -75,4 +81,19 @@ function escape(unsafe) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;")
-} 
+}
+
+export {
+    guessBtn,
+    guessInput,
+    hideGuessPanel,
+    hideResetPanel,
+    hintBtn,
+    resetBtn,
+    resetDefinition,
+    setDefinition,
+    showGuessPanel,
+    showResetPanel,
+    skipBtn
+}
+

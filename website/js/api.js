@@ -1,3 +1,5 @@
+import { capitalize } from "./stringutils.js"
+
 const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en"
 const MAX_RETRIES = 5
 
@@ -67,3 +69,5 @@ function getAntonyms(defs) {
         (xs, def) => new Set([...xs, ...def.antonyms]),
         new Set()))
 }
+
+export { getDefinition }

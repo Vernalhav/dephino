@@ -47,3 +47,5 @@ for (const { str, word, n, expected } of tests) {
 function capitalize(s) {
     return s.charAt(0).toUpperCase() + s.slice(1)
 }
+
+export { capitalize, hide }

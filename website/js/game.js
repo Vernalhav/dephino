@@ -1,3 +1,8 @@
+import * as Api from "./api.js"
+import { choice } from "./arrayutils.js"
+import { hide } from "./stringutils.js"
+import * as Words from "./words.js"
+
 /** @type {string[]} */
 let words = []
 /** @type {DictionaryEntry?} */
@@ -90,7 +95,7 @@ async function newWord() {
     const word = choice(words)
     try {
         do {
-            wordDefinition = await getDefinition(word)
+            wordDefinition = await Api.getDefinition(word)
         } while (wordDefinition === null)
     } catch {
         setState("error", {
@@ -104,10 +109,11 @@ async function newWord() {
     setState("guessing")
 }
 
-async function main() {
+async function startGame() {
     setState("loading")
-    words = await getWords()
+    words = await Words.getWords()
     newWord()
 }
 
-window.addEventListener("load", main)
+export { gameObservers, getHint, guess, hiddenDefinition, newWord, skip, startGame }
+

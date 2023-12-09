@@ -16,6 +16,11 @@ main {
     box-sizing: border-box;
 }
 
+#guess-div {
+    position: sticky;
+    bottom: 0;
+}
+
 ::-moz-selection {
     color: #fff;
     background: #65c0ba;

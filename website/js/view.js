@@ -1,19 +1,22 @@
+import * as UI from "./components.js"
+import * as Game from "./game.js"
+
 function processGuessInput() {
-    guess(guessInput.value)
+    Game.guess(UI.guessInput.value)
 }
 
 function startNewGame() {
-    newWord()
+    Game.newWord()
 }
 
 function processHintInput() {
-    getHint()
-    resetDefinition()
-    setDefinition(hiddenDefinition)
+    Game.getHint()
+    UI.resetDefinition()
+    UI.setDefinition(Game.hiddenDefinition)
 }
 
 function processSkipInput() {
-    skip()
+    Game.skip()
 }
 
 /**
@@ -37,14 +40,14 @@ function gameObserver(newState, info) {
 
 function showWin() {
     hideAll()
-    showResetPanel()
+    UI.showResetPanel()
 }
 
 function showGuess() {
-    resetDefinition()
-    setDefinition(hiddenDefinition)
+    UI.resetDefinition()
+    UI.setDefinition(Game.hiddenDefinition)
     hideAll()
-    showGuessPanel()
+    UI.showGuessPanel()
 }
 
 /** @param {GameInfo} info */
@@ -53,13 +56,23 @@ function showError(info) {
 }
 
 function hideAll() {
-    hideResetPanel()
-    hideGuessPanel()
+    UI.hideResetPanel()
+    UI.hideGuessPanel()
+}
+
+function setupListeners() {
+    UI.guessInput.onkeydown = e => { if (e.key == "Enter") processGuessInput() }
+    UI.guessBtn.onclick = processGuessInput
+    UI.skipBtn.onclick = processSkipInput
+    UI.hintBtn.onclick = processHintInput
+    UI.resetBtn.onclick = startNewGame
 }
 
 function setup() {
+    setupListeners()
     hideAll()
-    gameObservers.push(gameObserver)
+    Game.gameObservers.push(gameObserver)
+    Game.startGame()
 }
 
 window.addEventListener("load", setup)
