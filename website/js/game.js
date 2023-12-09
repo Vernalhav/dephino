@@ -109,11 +109,16 @@ async function newWord() {
     setState("guessing")
 }
 
+/** @returns {DictionaryEntry} */
+function reveal() {
+    return wordDefinition
+}
+
 async function startGame() {
     setState("loading")
     words = await Words.getWords()
     newWord()
 }
 
-export { gameObservers, getHint, guess, hiddenDefinition, newWord, skip, startGame }
+export { gameObservers, getHint, guess, hiddenDefinition, newWord, reveal, skip, startGame }
 

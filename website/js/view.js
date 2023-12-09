@@ -11,7 +11,6 @@ function startNewGame() {
 
 function processHintInput() {
     Game.getHint()
-    UI.resetDefinition()
     UI.setDefinition(Game.hiddenDefinition)
 }
 
@@ -40,11 +39,11 @@ function gameObserver(newState, info) {
 
 function showWin() {
     hideAll()
+    UI.setDefinition(Game.reveal())
     UI.showResetPanel()
 }
 
 function showGuess() {
-    UI.resetDefinition()
     UI.setDefinition(Game.hiddenDefinition)
     hideAll()
     UI.showGuessPanel()
