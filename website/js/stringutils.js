@@ -8,18 +8,11 @@ const MAX_REPLACEMENTS = 50
  * @returns {string} `str` with hidden `word`s
  */
 function hide(str, word, count, censor = "-") {
-    word = word.toLowerCase()
-    const strLower = str.toLowerCase()
+    const pattern = new RegExp(word, "gi")
     count = count > word.length ? word.length : count
 
-    let pos = strLower.indexOf(word)
-    for (let i = 0; i < MAX_REPLACEMENTS && pos >= 0; i++) {
-        const censored = str.substring(pos, pos + (word.length - count)) + censor.repeat(count)
-        str = str.substring(0, pos) + censored + str.substring(pos + censored.length)
-        pos = strLower.indexOf(word, pos + 1)
-    }
-
-    return str
+    const replacer = match => match.slice(0, word.length - count) + censor.repeat(count)
+    return str.replace(pattern, replacer)
 }
 
 /** @type {{str: string, word: string, n: number, expected: string}[]} */
