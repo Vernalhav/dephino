@@ -39,3 +39,11 @@ for (const { str, word, n, expected } of tests) {
         console.error(`FAILED: expected '${expected}' received '${received}'`)
     }
 }
+
+/**
+ * @param {string} s 
+ * @returns {string}
+ */
+function capitalize(s) {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+}
