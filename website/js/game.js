@@ -50,6 +50,27 @@ function skip() {
     }
     setState("skipped")
 }
+/**
+ * @param {DictionaryEntry} def 
+ * @param {number} hints 
+ * @returns {DictionaryEntry} 
+ */
+function getHiddenDefinition(def, hints) {
+    const hidden = structuredClone(def)
+    const nHidden = def.word.length - hints
+
+    const hideMany = ws => ws.map(w => hide(w, def.word, nHidden))
+
+    hidden.word = hide(hidden.word, def.word, nHidden)
+    for (const meaning of hidden.meanings) {
+        for (const d of meaning.definitions) {
+            d.definition = hide(d.definition, def.word, nHidden)
+            d.examples = hideMany(d.examples)
+        }
+    }
+
+    return hidden
+}
 
 async function newWord() {
     setState("loading")
