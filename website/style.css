@@ -16,9 +16,18 @@ main {
     box-sizing: border-box;
 }
 
-#guess-div {
-    position: sticky;
+#controls {
+    position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5em;
+    width: 100vw;
+    max-width: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f6eee3;
 }
 
 ::-moz-selection {
