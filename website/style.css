@@ -55,6 +55,10 @@ li p {
     margin-bottom: 1em;
 }
 
+.examples li {
+    margin-bottom: 0.2em;
+}
+
 .part-of-speech {
     margin-bottom: 1em;
 }
