@@ -69,7 +69,7 @@ function setDefinition(def) {
             (synonyms.length ? `Synonyms<ul class="synonyms">${synonyms}</ul>` : "") +
             (antonyms.length ? `Antonyms<ul class="antonyms">${antonyms}</ul>` : "") +
             `</li>`
-    }).join("")
+    }).join("<hr />")
     definitionDiv.innerHTML = `${title}
         <ul class="meanings">${items}</ul>`
 }
