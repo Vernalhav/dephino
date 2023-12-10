@@ -64,14 +64,13 @@ function setDefinition(def) {
                 (examples.length ? `<ul class="examples">${examples}</ul>` : "") +
                 `</li>`
         }).join("")
-        return `<li><p class="part-of-speech">${escape(m.partOfSpeech)}</p>
+        return `<p class="part-of-speech">${escape(m.partOfSpeech)}</p>
             <ul class="definitions">${defs}</ul>` +
             (synonyms.length ? `Synonyms<ul class="synonyms">${synonyms}</ul>` : "") +
-            (antonyms.length ? `Antonyms<ul class="antonyms">${antonyms}</ul>` : "") +
-            `</li>`
+            (antonyms.length ? `Antonyms<ul class="antonyms">${antonyms}</ul>` : "")
     }).join("<hr />")
     definitionDiv.innerHTML = `${title}
-        <ul class="meanings">${items}</ul>`
+        <div class="meanings">${items}</div>`
 }
 
 function escape(unsafe) {

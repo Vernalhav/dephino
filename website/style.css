@@ -32,6 +32,38 @@ main {
     background-color: #f6eee3;
 }
 
+ul {
+    margin-bottom: 0.6em;
+}
+
+hr {
+    margin-top: 1.2em;
+    margin-bottom: 1em;
+}
+
+li p {
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    line-height: 1.1em;
+}
+
+.example {
+    font-style: italic;
+}
+
+.definitions li {
+    margin-bottom: 1em;
+}
+
+.part-of-speech {
+    margin-bottom: 1em;
+}
+
+.synonyms,
+.antonyms {
+    margin-top: 0.2em;
+}
+
 ::-moz-selection {
     color: #fff;
     background: #65c0ba;
