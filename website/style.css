@@ -1,7 +1,7 @@
 body {
     background: #fff;
-    font-family: "Mukta Mahee", arial, sans-serif;
-    font-weight: 200;
+    font-family: "Slabo 27px", serif;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.8;
     background-color: #faf9f6;
@@ -57,7 +57,9 @@ h3,
 h4,
 h5 {
     color: #000;
-    font-family: "Abril Fatface", times, serif;
+    font-style: italic;
+    font-weight: 900;
+    font-family: "Noto Serif Display", times, serif;
 }
 
 .container-fluid {
