@@ -2,10 +2,15 @@ import * as UI from "./components.js"
 import * as Game from "./game.js"
 
 function processGuessInput() {
-    const correct = Game.guess(UI.guessInput.value)
+    const guess = UI.guessInput.value
+    if (guess.length !== Game.hiddenDefinition.word.length) {
+        return
+    }
+    const correct = Game.guess(guess)
     if (!correct) {
         UI.shakeGuessPanel()
         UI.guessInput.value = ""
+        updateGuessBtnState()
     }
 }
 
@@ -48,9 +53,11 @@ function showWin() {
 }
 
 function showGuess() {
+    UI.guessInput.maxLength = Game.hiddenDefinition.word.length
     UI.setDefinition(Game.hiddenDefinition)
     hideAll()
     UI.showGuessPanel()
+    updateGuessBtnState()
 }
 
 /** @param {GameInfo} info */
@@ -63,8 +70,14 @@ function hideAll() {
     UI.hideGuessPanel()
 }
 
+function updateGuessBtnState() {
+    const word = Game.hiddenDefinition.word
+    UI.guessBtn.disabled = UI.guessInput.value.length !== word.length
+}
+
 function setupListeners() {
-    UI.guessInput.onkeydown = e => { if (e.key == "Enter") processGuessInput() }
+    UI.guessInput.oninput = updateGuessBtnState
+    UI.guessInput.onkeydown = e => { if (e.key === "Enter") processGuessInput() }
     UI.guessBtn.onclick = processGuessInput
     UI.skipBtn.onclick = processSkipInput
     UI.hintBtn.onclick = processHintInput
