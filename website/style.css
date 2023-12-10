@@ -16,6 +16,10 @@ main {
     box-sizing: border-box;
 }
 
+#definition {
+    margin-bottom: 7em;
+}
+
 #controls {
     position: fixed;
     bottom: 0;
