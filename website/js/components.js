@@ -46,6 +46,11 @@ function showResetPanel() {
     resetBtn.disabled = false
 }
 
+function shakeGuessPanel() {
+    guessDiv.classList.add("shake")
+    setTimeout(() => guessDiv.classList.remove("shake"), 200)
+}
+
 function resetDefinition() {
     definitionDiv.innerHTML = ""
 }
@@ -91,6 +96,7 @@ export {
     resetBtn,
     resetDefinition,
     setDefinition,
+    shakeGuessPanel,
     showGuessPanel,
     showResetPanel,
     skipBtn

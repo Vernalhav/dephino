@@ -64,6 +64,25 @@ li p {
     margin-top: 0.2em;
 }
 
+.shake {
+    animation: shake 0.15s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(5px, 0);
+    }
+
+    50% {
+        transform: translate(-5px, 0);
+    }
+
+    100% {
+        transform: translate(1px, 0);
+    }
+}
+
 ::-moz-selection {
     color: #fff;
     background: #65c0ba;

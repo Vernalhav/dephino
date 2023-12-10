@@ -2,7 +2,11 @@ import * as UI from "./components.js"
 import * as Game from "./game.js"
 
 function processGuessInput() {
-    Game.guess(UI.guessInput.value)
+    const correct = Game.guess(UI.guessInput.value)
+    if (!correct) {
+        UI.shakeGuessPanel()
+        UI.guessInput.value = ""
+    }
 }
 
 function startNewGame() {
