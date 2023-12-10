@@ -28,7 +28,7 @@ async function getDefinition(word) {
  * @return {DictionaryEntry}
  */
 function mapResponseToDomain(data) {
-    const getExamples = example => (example ? [example] : [])
+    const getExamples = example => (example ? example.split(/\s{2,}/) : [])
     return {
         word: capitalize(data.word),
         meanings: data.meanings.map(meaning => ({
