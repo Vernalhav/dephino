@@ -60,15 +60,15 @@ function setDefinition(def) {
         const antonyms = m.antonyms.map(a => `<li><p class="ant">${escape(a)}</p></li>`).join("")
         const defs = m.definitions.map(d => {
             const examples = d.examples.map(e => `<li><p class="example">${escape(e)}</p></li>`).join("")
-            return `<li><p class="definition">${escape(d.definition)}<p>
-                <ul class="examples">${examples}</ul>
-            </li>`
+            return `<li><p class="definition">${escape(d.definition)}<p>` +
+                (examples.length ? `<ul class="examples">${examples}</ul>` : "") +
+                `</li>`
         }).join("")
         return `<li><p class="part-of-speech">${escape(m.partOfSpeech)}</p>
-            <ul class="definitions">${defs}</ul>
-            Synonyms<ul class="synonyms">${synonyms}</ul>
-            Antonyms<ul class="antonyms">${antonyms}</ul>
-        </li>`
+            <ul class="definitions">${defs}</ul>` +
+            (synonyms.length ? `Synonyms<ul class="synonyms">${synonyms}</ul>` : "") +
+            (antonyms.length ? `Antonyms<ul class="antonyms">${antonyms}</ul>` : "") +
+            `</li>`
     }).join("")
     definitionDiv.innerHTML = `${title}
         <ul class="meanings">${items}</ul>`
