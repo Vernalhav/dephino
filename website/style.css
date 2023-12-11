@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     background: #fff;
     font-family: "Slabo 27px", serif;
     font-weight: 400;
@@ -16,6 +17,37 @@ main {
     box-sizing: border-box;
 }
 
+#header {
+    padding: 0.3em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: 2em;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #FAF7F6;
+    z-index: 2;
+}
+
+#header .title h1 {
+    margin: 0;
+    font-style: normal;
+}
+
+a.icon,
+a.icon:visited,
+a.icon:hover,
+a.icon:active {
+    color: inherit;
+}
+
+.github-icon {
+    font-size: 3rem;
+}
+
 #definition {
     margin-bottom: 7em;
 }
@@ -29,7 +61,8 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #f6eee3;
+    background-color: #FAF9F6;
+    /* background-color: #f6eee3; */
 }
 
 ul {
@@ -41,7 +74,7 @@ hr {
     margin-bottom: 1em;
 }
 
-li p {
+li>p {
     margin-top: 0;
     margin-bottom: 0.2em;
     line-height: 1.1em;
@@ -51,11 +84,11 @@ li p {
     font-style: italic;
 }
 
-.definitions li {
+.definitions>li {
     margin-bottom: 1em;
 }
 
-.examples li {
+.examples>li {
     margin-bottom: 0.2em;
 }
 
