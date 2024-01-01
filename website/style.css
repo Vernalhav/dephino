@@ -28,13 +28,15 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #FAF7F6;
+    background-color: #121212;
+    /* background-color: #FAF7F6; */
     z-index: 2;
 }
 
-#header .title h1 {
-    margin: 0;
-    font-style: normal;
+#logo,
+#icon {
+    height: 3rem;
+    color: white;
 }
 
 a.icon,
@@ -46,6 +48,7 @@ a.icon:active {
 
 .github-icon {
     font-size: 3rem;
+    color: white;
 }
 
 #definition {
