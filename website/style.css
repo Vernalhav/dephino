@@ -65,6 +65,7 @@ a.icon:active {
     flex-direction: row;
     justify-content: center;
     background-color: #FAF9F6;
+    box-shadow: #999 0 -1px 10px;
     /* background-color: #f6eee3; */
 }
 
