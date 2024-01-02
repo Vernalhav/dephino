@@ -6,6 +6,8 @@
 Question: are there any words in our dataset that contain apostrophes or spaces?
 
 ## TODO
+* Change colors of part of speech, title, etc.
+* Dark theme
 * Controls panel styling
 * Add source
 * Add logo and github page in header
