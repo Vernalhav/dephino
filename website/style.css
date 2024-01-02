@@ -33,8 +33,7 @@ main {
     z-index: 2;
 }
 
-#logo,
-#icon {
+#logo {
     height: 3rem;
     color: white;
 }
@@ -43,11 +42,14 @@ a.icon,
 a.icon:visited,
 a.icon:hover,
 a.icon:active {
+    position: absolute;
+    right: 1.5rem;
+    padding-top: 0.5rem;
     color: inherit;
 }
 
 .github-icon {
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
 }
 
