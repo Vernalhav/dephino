@@ -50,6 +50,7 @@ function showWin() {
     hideAll()
     UI.setDefinition(Game.reveal())
     UI.showResetPanel()
+    setTimeout(() => UI.resetBtn.focus(), 5);
 }
 
 function showGuess() {
