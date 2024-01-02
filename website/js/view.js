@@ -15,6 +15,7 @@ function processGuessInput() {
 }
 
 function startNewGame() {
+    UI.resetBtn.disabled = true
     Game.newWord()
 }
 
