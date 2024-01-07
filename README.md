@@ -18,3 +18,4 @@ Question: are there any words in our dataset that contain apostrophes or spaces?
 * Add list with previous attempts?
 * Add timer to score?
 * Add word of the day?
+* Try the icon as a negative-space shape, or add a stroke.
