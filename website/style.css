@@ -41,17 +41,20 @@ main {
 button {
     border: none;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    background-color: #121212;
+    background-color: #fff;
     border-radius: 3px;
     min-width: 5rem;
-    color: white;
+    color: black;
     padding: 0 16px;
     line-height: 2em;
-    transition: background-color 200ms, opacity 200ms;
+    transition: background-color 200ms, opacity 200ms, color 200ms;
+    box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
 }
 
-button:hover {
+button:enabled:hover {
     cursor: pointer;
+    background-color: #121212;
+    color: white;
 }
 
 button:disabled {
