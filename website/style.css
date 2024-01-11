@@ -41,6 +41,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5em;
 }
 
 #secondary-btns {
@@ -100,6 +101,7 @@ a.icon:active {
 
 #controls {
     position: fixed;
+    height: 1.5em;
     bottom: 0;
     left: 0;
     right: 0;
