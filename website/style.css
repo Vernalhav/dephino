@@ -29,13 +29,24 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #121212;
-    /* background-color: #FAF7F6; */
     z-index: 2;
 }
 
 #logo {
     height: 3rem;
     color: white;
+}
+
+#primary-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#secondary-btns {
+    position: absolute;
+    right: 1.5rem;
+    bottom: 0.5rem;
 }
 
 button {
@@ -99,12 +110,6 @@ a.icon:active {
     align-items: center;
     background-color: #FAF9F6;
     box-shadow: #999 0 -1px 10px;
-}
-
-#secondary-btns {
-    position: absolute;
-    right: 1.5rem;
-    bottom: 0.5rem;
 }
 
 ul {

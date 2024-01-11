@@ -1,6 +1,9 @@
 const guessInput = /** @type {HTMLInputElement} */ (
     document.getElementById("guess-input")
 )
+const primaryInput = /** @type {HTMLInputElement} */ (
+    document.getElementById("primary-input")
+)
 const guessDiv = /** @type {HTMLDivElement} */ (
     document.getElementById("guess-div")
 )
@@ -33,7 +36,7 @@ function showGuessPanel() {
     guessInput.disabled = false
     guessInput.value = ""
     guessBtn.disabled = false
-    guessDiv.style.display = "initial"
+    guessDiv.style.display = ""
 }
 
 function hideResetPanel() {
@@ -42,13 +45,13 @@ function hideResetPanel() {
 }
 
 function showResetPanel() {
-    resetDiv.style.display = "initial"
+    resetDiv.style.display = ""
     resetBtn.disabled = false
 }
 
 function shakeGuessPanel() {
-    guessDiv.classList.add("shake")
-    setTimeout(() => guessDiv.classList.remove("shake"), 200)
+    primaryInput.classList.add("shake")
+    setTimeout(() => primaryInput.classList.remove("shake"), 200)
 }
 
 function resetDefinition() {
