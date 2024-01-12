@@ -58,16 +58,6 @@ main {
     background: transparent;
     background-color: #ddd;
     transition: border-color 0.2s, border-width 0.2s, font-weight 0.2s, background-color 0.2s;
-
-    /* &::placeholder {
-        color: transparent;
-    }
-
-    &:placeholder-shown~.form__label {
-        font-size: 1.3rem;
-        cursor: text;
-        top: 20px;
-    } */
 }
 
 #guess-input:focus {
@@ -85,7 +75,7 @@ button {
     border: none;
     font-family: "Roboto";
     font-weight: 700;
-    background-color: #fff;
+    background-color: #eee;
     border-radius: 3px;
     min-width: 5rem;
     color: #101010;
