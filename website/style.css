@@ -44,6 +44,37 @@ main {
     gap: 0.5em;
 }
 
+#guess-input {
+    font-family: inherit;
+    width: 100%;
+    max-width: 300px;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #444;
+    text-align: center;
+    background: transparent;
+    background-color: #ddd;
+    transition: border-color 0.2s, border-width 0.2s, font-weight 0.2s, background-color 0.2s;
+
+    /* &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown~.form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    } */
+}
+
+#guess-input:focus {
+    background-color: transparent;
+    border-color: #666;
+}
+
 #secondary-btns {
     position: absolute;
     right: 1.5rem;
